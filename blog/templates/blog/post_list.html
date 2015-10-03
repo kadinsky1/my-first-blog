@@ -6,18 +6,14 @@
         <div>
             <h1><a href="">Django Girls Blog by kadinsky</a></h1>
         </div>
+	<div>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</div>
 
-        <div>
-            <p>published: 10.03.2015, 11:54</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Something, something to post.....how about some lyrics?  If the sun refused to shine, I would still be loving you.  When mountains crumble to the sea, there will still be you and me.  Kind woman, I give you my all.  Kind woman, nothing more.</p>
-        </div>
-
-        <div>
-            <p>published: 10.03.2015, 11:56</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Little drops of rain whisper of the pain, tears of loves lost in the days gone by.  My love is strong, with you there is no wrong, together we shall go until we die.  My, my, my.  An inspiration is what you are to me, inspiration, look....see.
-Thanks for the inspiration, Boo.</p>
-        </div>
-    </body>
-</html>
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaks }}</p>
+    </div>
+{% endfor %}
